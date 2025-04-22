@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>arito - Restaurants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="font-[Poppins] bg-gray-50 dark:bg-gray-900 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-colors duration-300 dark:bg-gray-900">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo and Back Button -->
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-red-600 transition-colors">
+                    <i class="fas fa-arrow-left text-xl"></i>
+                </a>
+                <h1 class="text-red-600 font-bold text-3xl">arito</h1>
+            </div>
+            
+            <!-- Dark Mode Toggle -->
+            <button id="darkModeToggle" class="text-gray-600 dark:text-gray-300">
+                <i class="fas fa-moon text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Spacer for fixed header -->
+    <div class="h-20"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <h2 class="text-3xl font-semibold mb-8 dark:text-white">All Restaurants</h2>
+        <div id="restaurants-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Restaurant cards will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-900 py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-gray-600 dark:text-gray-400">
+                <p>&copy; 2024 arito. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="constants.js"></script>
+    <script src="utils.js"></script>
+    <script src="restaurant-card.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // On page load, render restaurants randomly
+        document.addEventListener('DOMContentLoaded', () => {
+            const restaurantsList = document.getElementById('restaurants-list');
+            const shuffled = [...restaurants].sort(() => 0.5 - Math.random());
+            shuffled.forEach(restaurant => {
+                const card = createRestaurantCard(restaurant);
+                restaurantsList.appendChild(card);
+            });
+
+            // Dark mode toggle
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun text-xl"></i>';
+            }
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                const isDark = document.body.classList.contains('dark');
+                localStorage.setItem('darkMode', isDark);
+                darkModeToggle.innerHTML = isDark ? 
+                    '<i class="fas fa-sun text-xl"></i>' : 
+                    '<i class="fas fa-moon text-xl"></i>';
+            });
+        });
+    </script>
+</body>
+</html>
