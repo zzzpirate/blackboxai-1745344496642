@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-[Poppins]">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-colors duration-300 dark:bg-gray-900">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <h1 class="text-red-400 font-bold text-3xl">arito</h1>
+                <div class="ml-4 relative">
+                    <input type="text" placeholder="Search by food item or restaurant" class="w-[400px] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                    <i class="fas fa-search absolute right-4 top-3 text-gray-400"></i>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="flex items-center space-x-6">
+                <button id="darkModeToggle" class="text-gray-600 dark:text-gray-300">
+                    <i class="fas fa-moon text-xl"></i>
+                </button>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl text-gray-600 dark:text-gray-300"></i>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-red-50 to-red-100 dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto px-4 py-16 pt-28">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+                    Discover the best food & drinks
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                    Order from the finest restaurants in your area
+                </p>
+                
+                <!-- Location Selector -->
+                <div class="max-w-xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg p-2 flex items-center">
+                    <div class="flex-1 flex items-center px-4">
+                        <i class="fas fa-map-marker-alt text-red-500 text-xl mr-4"></i>
+                        <input type="text" 
+                               placeholder="Enter your delivery location" 
+                               class="w-full py-2 focus:outline-none dark:bg-gray-800 dark:text-white">
+                    </div>
+                    <button class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition-colors">
+                        Locate Me
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cuisine Types -->
+    <section class="bg-white dark:bg-gray-900 py-8">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold mb-6 dark:text-white">Popular Cuisines</h2>
+            <div class="flex overflow-x-auto pb-4 space-x-6 cuisine-scroll">
+                <div class="cuisine-card flex-shrink-0 text-center">
+                    <div class="w-24 h-24 rounded-full bg-red-100 dark:bg-gray-800 flex items-center justify-center mb-2 mx-auto hover:bg-red-200 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+                        <img src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg" alt="Italian" class="w-16 h-16 rounded-full object-cover">
+                    </div>
+                    <span class="text-sm font-medium dark:text-white">Italian</span>
+                </div>
+                <div class="cuisine-card flex-shrink-0 text-center">
+                    <div class="w-24 h-24 rounded-full bg-red-100 dark:bg-gray-800 flex items-center justify-center mb-2 mx-auto hover:bg-red-200 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+                        <img src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg" alt="Indian" class="w-16 h-16 rounded-full object-cover">
+                    </div>
+                    <span class="text-sm font-medium dark:text-white">Indian</span>
+                </div>
+                <div class="cuisine-card flex-shrink-0 text-center">
+                    <div class="w-24 h-24 rounded-full bg-red-100 dark:bg-gray-800 flex items-center justify-center mb-2 mx-auto hover:bg-red-200 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+                        <img src="https://images.pexels.com/photos/1058714/pexels-photo-1058714.jpeg" alt="Chinese" class="w-16 h-16 rounded-full object-cover">
+                    </div>
+                    <span class="text-sm font-medium dark:text-white">Chinese</span>
+                </div>
+                <div class="cuisine-card flex-shrink-0 text-center">
+                    <div class="w-24 h-24 rounded-full bg-red-100 dark:bg-gray-800 flex items-center justify-center mb-2 mx-auto hover:bg-red-200 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+                        <img src="https://images.pexels.com/photos/2087748/pexels-photo-2087748.jpeg" alt="Mexican" class="w-16 h-16 rounded-full object-cover">
+                    </div>
+                    <span class="text-sm font-medium dark:text-white">Mexican</span>
+                </div>
+                <div class="cuisine-card flex-shrink-0 text-center">
+                    <div class="w-24 h-24 rounded-full bg-red-100 dark:bg-gray-800 flex items-center justify-center mb-2 mx-auto hover:bg-red-200 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+                        <img src="https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg" alt="Japanese" class="w-16 h-16 rounded-full object-cover">
+                    </div>
+                    <span class="text-sm font-medium dark:text-white">Japanese</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 pb-12">
+        <!-- Restaurants Section -->
+        <section class="mt-8">
+            <!-- Filters and Sorting -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <!-- Sort Options -->
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-600 dark:text-gray-300 font-medium">Sort by:</span>
+                    <select id="sortOption" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:border-red-500 dark:text-white">
+                        <option value="rating">Rating</option>
+                        <option value="deliveryTime">Delivery Time</option>
+                        <option value="priceHighToLow">Price: High to Low</option>
+                        <option value="priceLowToHigh">Price: Low to High</option>
+                    </select>
+                </div>
+
+                <!-- Diet Filters -->
+                <h3 class="text-lg font-medium mb-3 dark:text-white">Diet Preferences</h3>
+                <div class="flex flex-wrap gap-2">
+                    <button class="diet-filter px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-red-500 dark:hover:border-red-500 transition-colors" data-diet="keto">
+                        Keto
+                    </button>
+                    <button class="diet-filter px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-red-500 dark:hover:border-red-500 transition-colors" data-diet="vegan">
+                        Vegan
+                    </button>
+                    <button class="diet-filter px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-red-500 dark:hover:border-red-500 transition-colors" data-diet="vegetarian">
+                        Vegetarian
+                    </button>
+                    <button class="diet-filter px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-red-500 dark:hover:border-red-500 transition-colors" data-diet="diabetic-friendly">
+                        Diabetic Friendly
+                    </button>
+                    <button class="diet-filter px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-red-500 dark:hover:border-red-500 transition-colors" data-diet="gluten-free">
+                        Gluten Free
+                    </button>
+                    <button class="diet-filter px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-red-500 dark:hover:border-red-500 transition-colors" data-diet="low-carb">
+                        Low Carb
+                    </button>
+                </div>
+            </div>
+            
+            <h2 class="text-2xl font-semibold mb-6 dark:text-white">Popular Restaurants</h2>
+            <div id="restaurants-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Restaurants will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-900 py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-gray-600 dark:text-gray-400">
+                <p>&copy; 2024 Zomato Clone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
